@@ -20,6 +20,7 @@ export class StudentComponent implements OnInit {
 
   getStudentData() {
     this.studentList = this.studentsService.getStudents();
+    console.log("this.studentList",this.studentList);
   }
 
   /**

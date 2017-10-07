@@ -12,7 +12,7 @@ export class StudentService {
         if (localStorage.getItem('students')) {
             return JSON.parse(localStorage.getItem('students'));
         } else {
-            return "Failed";
+            return [];
         }
     }
 
@@ -39,7 +39,7 @@ export class StudentService {
                 return "Success";
             }
         } else {
-            return "Failed";
+            return;
         }
     }
 
@@ -54,7 +54,7 @@ export class StudentService {
             return JSON.parse(localStorage.getItem('students'));
         } else {
             alert("No Data Available");
-            return "Failed";
+            return;
         }
     }
 

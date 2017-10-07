@@ -5,7 +5,7 @@
 </div>
 <p></p>
 <p></p>
-<div class="container">
+<div class="container" *ngIf="studentList">
     <div class="row">
         <div class="col-xs-12">
             <div class="table-responsive">
@@ -36,7 +36,6 @@
                                 <button (click)="deleteStudent(i);" class="btn btn-danger">Delete</button>
                             </td>
                         </tr>
-                        <tr *ngIf="studentList.lenght==0">No user found</tr>
                     </tbody>
                     <tfoot>
                     </tfoot>

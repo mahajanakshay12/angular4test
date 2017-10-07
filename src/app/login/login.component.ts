@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup ,FormControl,Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ValidationService } from '../config.service';
-//import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 //import { ViewContainerRef } from '@angular/core';
 import { Login} from '../data-model';
 
@@ -16,7 +16,7 @@ import { Login} from '../data-model';
 export class LoginComponent implements OnInit {
 
   private loginForm : FormGroup;
-	constructor(private formBuilder: FormBuilder,private router: Router) { 
+	constructor(private formBuilder: FormBuilder,private router: Router,private toastr: ToastrService) { 
 		this.loginForm = this.formBuilder.group({
 			email: ['',  [Validators.required, ValidationService.emailValidator]],
 			password: ['',[Validators.required, ValidationService.passwordValidator]]
@@ -34,10 +34,11 @@ export class LoginComponent implements OnInit {
 		if (this.loginForm.value.email == 'admin@yopmail.com' && this.loginForm.value.password == 'admin@123') {
 			localStorage.setItem('userData', JSON.stringify(this.loginForm.value));
 			this.router.navigate(['/']);
+			this.toastr.success('Login successfully !');
 		}
 
 		else{
-			alert("Invalid Credentials");
+			this.toastr.error('Wrong username or password !');
 		}
 	}
 
