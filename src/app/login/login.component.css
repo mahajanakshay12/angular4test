@@ -1,0 +1,17 @@
+body {
+    background-color: #bbb;
+}
+
+.margin-top {
+    /*margin-top: 170px;*/
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}

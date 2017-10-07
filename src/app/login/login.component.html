@@ -1,0 +1,40 @@
+<div class="w3-container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6  margin-top">
+            <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="doLogin()" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                <br>
+                <div class="alert alert-warning">
+                    <p><i>Username : </i> admin@yopmail.com | <i>Password : </i> admin@123</p>
+                </div>
+                <h2 class="w3-center">Login</h2>
+                <div class="imgcontainer">
+                    <img src="../assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" id="email" class="w3-input w3-border" formControlName="email" placeholder="Email">
+                        <div class="w3-panel w3-red" *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">Please enter valid email address</div>
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-key"></i></div>
+                    <div class="w3-rest">
+                        <input class="w3-input w3-border" type="password" id="password" formControlName="password" placeholder="Password">
+                        <div class="w3-panel w3-red" *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">Password must be at least 6 characters long, and contain a number</div>
+                    </div>
+                </div>
+                <p class="w3-center">
+                    <button class="w3-button w3-section w3-blue w3-ripple" [disabled]="!loginForm.valid"> Login </button>
+                </p>
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+<style>
+body {
+    background-color: #bbb;
+}
+</style>

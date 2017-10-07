@@ -1,0 +1,33 @@
+<div class="container">
+    <h3>User Detail</h3>
+    <form [formGroup]="studentForm" class="w3-container" (ngSubmit)="addStudent()">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="firstname" type="text" class="form-control" formControlName="firstname" placeholder="First Name">
+        </div>
+        <div class="alert alert-danger" *ngIf="studentForm.controls.firstname.invalid && (studentForm.controls.firstname.dirty || studentForm.controls.firstname.touched)">Please enter first name</div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="lastname" type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+        </div>
+        <div class="alert alert-danger" *ngIf="studentForm.controls.lastname.invalid && (studentForm.controls.lastname.dirty || studentForm.controls.lastname.touched)">Please enter last name</div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input id="email" type="text" class="form-control" formControlName="email" placeholder="Email">
+        </div>
+        <div class="alert alert-danger" *ngIf="studentForm.controls.email.invalid && (studentForm.controls.email.dirty || studentForm.controls.email.touched)">Please enter valid email</div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input id="phone" type="number" class="form-control" formControlName="phone" placeholder="Phone">
+        </div>
+        <div class="alert alert-danger" *ngIf="studentForm.controls.phone.invalid && (studentForm.controls.phone.dirty || studentForm.controls.phone.touched)">Please enter valid phone</div>
+        <br>
+        <p>
+            <button class="btn btn-success" [disabled]="!studentForm.valid">{{indexy==true?'Update':'Add'}}</button>
+        </p>
+    </form>
+    <br>
+</div>

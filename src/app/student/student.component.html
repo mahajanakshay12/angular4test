@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>User List</h2>
+    <button routerLink="/add" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Student</button>
+    <input type="text" id="myInput" class="search pull-right searchTerm" placeholder="Searching User...." [(ngModel)]="query">
+</div>
+<p></p>
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of studentList  | searchPipe:'firstname,firstname':query ; index as i;" class="success">
+                            <!-- <tr *ngFor="let student of studentList | searchPipe:'firstname,firstname':query"> -->
+                            <td>{{i +1}}</td>
+                            <td>{{student.firstname}}</td>
+                            <td>{{student.lastname}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.phone}}</td>
+                            <td>
+                                <button [routerLink]="['add', i]" class="btn btn-warning">Edit</button>
+                            </td>
+                            <td>
+                                <button (click)="deleteStudent(i);" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="studentList.lenght==0">No user found</tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+            <!--end of .table-responsive-->
+        </div>
+    </div>
+</div>
